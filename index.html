@@ -1,0 +1,86 @@
+<html>
+<head>
+ <meta charset="UTF-8"> 
+<style>
+#divColor{
+	margin-left: auto;
+    margin-right: auto;
+    width: 20em
+}
+#textColor{
+	margin-left: auto;
+    margin-right: auto;
+    width: 20em
+}
+#lol{
+	margin-left: auto;
+    margin-right: auto;
+    width: 12em
+}
+#myTypingText {
+	background-color:#000;
+	 margin-left: auto;
+    margin-right: auto;
+    width: 6em
+	width:700px;
+	height:120px;
+	padding:12px;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+        font-size:16px;
+	line-height:1.5em;
+		}
+</style>
+</head>
+<body>
+<div id="myTypingText" onclick="clearTextPlz()"></div> <center><font size="5">Important Information: In order to clear ALL TEXT, click on the already written text field. Previously written text will appear again after another submission. Note the character limit of 500!</center></font>
+<script>
+var loopTimer;
+var myString;
+var myArray;
+var stringLength=0;
+function resetPage(){
+	location.reload();
+}
+function frameLooperwarmup(){
+var myStringtemp=prompt("Type in the text field to be animated!");
+if(myStringtemp.length>499)
+resetPage();
+var myString=myStringtemp.substr(0, 500);
+stringLength+=myString.length;
+myArray = myString.split("");
+if(stringLength>=500)
+resetPage();
+frameLooper();
+}
+function frameLooper() {
+document.getElementById("myTypingText").style.color="#FFF";
+	if(myArray.length > 0) {
+		document.getElementById("myTypingText").innerHTML += myArray.shift();
+	} else {
+		clearTimeout(loopTimer); 
+                return false;
+	}
+	loopTimer = setTimeout('frameLooper()',10);
+}
+function clearTextPlz(){
+document.getElementById("myTypingText").style.color="#000";
+}
+function changeColor(){
+document.getElementById("myTypingText").style.color=document.getElementById("divColor").value;
+document.getElementById("myTypingText").style.background-color=document.getElementById("textColor").value;
+
+}
+</script>
+</br></br></br>
+<center><button id = "lol" onclick ="frameLooperwarmup()">Click here for a cool text animation!</button></center>
+</br>
+<center><button id="lol" onclick="resetPage()">Reset your text entries!</button></center>
+</br>
+<center>Text Block Color: <input type="text" name="DivColor" value="Hex Values Only!" id ="divColor"></br>
+Text Color: <input type="text" name="TextColor" value="Hex Values Only!" id ="textColor"></br><br></center>
+<center><button id="lol" onclick="changeColor()">Customize the Colors!</button></center>
+</body>
+</html>
+
+
