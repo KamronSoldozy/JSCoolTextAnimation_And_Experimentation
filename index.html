@@ -30,6 +30,11 @@
         font-size:16px;
 	line-height:1.5em;
 		}
+ #divColors{
+padding-left:48em;
+
+		 }
+
 </style>
 </head>
 <body>
@@ -64,7 +69,9 @@ document.getElementById("myTypingText").style.color="#FFF";
 	loopTimer = setTimeout('frameLooper()',50);
 }
 function clearTextPlz(){
-document.getElementById("myTypingText").style.color="#000";
+	if(document.getElementById("myTypingText").style.color="#000")
+document.getElementById("myTypingText").style.color="000"
+
 }
 function changeColor(){
 //document.getElementById("myTypingText").style.color=document.getElementById("divColor").value;
@@ -77,8 +84,9 @@ function changeColor(){
 </br>
 <center><button id="lol" onclick="resetPage()">Reset your text entries!</button></center>
 </br>
-<center>Text Block Color: <input type="text" name="DivColor" value="Hex Values Only!" id ="divColor"></br>
-Text Color: <input type="text" name="TextColor" value="Hex Values Only!" id ="textColor"></br><br></center>
+
+<p id="divColors">Color 1: <input type="text" name="DivColor" value="Hex Values Only!" id ="divColor"></br>
+Color 2: <input type="text" name="TextColor" value="Hex Values Only!" id ="textColor"></br><br><p>
 <center><button id="lol" onclick="changeColor()">Customize the Colors!</button></center>
 </body>
 </html>
